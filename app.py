@@ -3,6 +3,10 @@ import pandas as pd
 from flask import Flask, jsonify, request
 from sqlalchemy import create_engine, text
 from flask_cors import CORS
+@app.route('/')
+def index():
+    """Serves the main index.html file."""
+    return render_template('index.html')
 
 # --- Database Connection ---
 # This code is designed for deployment. It reads the database URL 
@@ -119,3 +123,4 @@ if __name__ == '__main__':
     # DATABASE_URL = "mysql+mysqlconnector://root:your_password@localhost/dbms_project"
     # engine = create_engine(DATABASE_URL)
     app.run(debug=True)
+
